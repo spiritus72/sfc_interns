@@ -1,0 +1,40 @@
+This is the list of tasks of the second phase of the recruitment process for the intern position:
+
+https://wiki.opnfv.org/display/DEV/Intern+Project%3A+kubernetes-sfc+scenario+investigation+and+prototype
+
+Here is the list of tasks:
+
+#1 - Create a github account (if you don't have one yet) and fork this repo. We would like you to write down the answers of the questions we ask in the forked version of this text file. If the task requires some practical exercises, we would like you to write every command you use
+
+#2 - Set up the VPN to connect to our lab. To do so, read the instructions in the next link under the section "Using the VPN":
+
+https://wiki.opnfv.org/display/INF/Lab-as-a-Service+at+the+UNH-IOL
+
+Your username and password for the VPN were provided to you in the mail
+
+#3 - Connect to our server (10.10.100.21) using ssh with username opnfv and the same for password
+
+#4 - How would you ssh our server without having to write the password? If you know a way, apart from briefly explaining how, please try to do it. HINT: Restarting the sshd process (ssh server) is not needed
+
+#5 - ssh to your VM running in the server. The ip was provided in the mail
+
+#6 - How would you ssh directly from your computer to the VM without having to use ssh twice (one to connect to the server and another one to connect to the VM)? If you know a way, apart from briefly explaining how, please try to do it.
+
+#7 - Install docker inside the VM
+
+#8 - Create 2 docker containers (use opensuse or ubuntu as their operating system) making sure that they don't stop when you leave them. From now on, we will call these containers: container1 and container2
+
+#9 - Make sure you can ping between both containers
+
+#10 - Explain what are the used networking protocols and the exchanged packets that appear in order for ping to be successful (e.g. container2 first sends a UDP packet with the IP of container 1...)
+
+#11 - Describe in detail what is the path the packets follow since they leave the interface inside container1 until they reach the interface inside container2
+
+#12 - Imagine, container1 and container2 are in different VMs or servers. What do you think would change from what you described in #11?
+
+#13 - Push this file with the answers to your private github repository
+
+#14 - Send an email to Dimitris and Manuel with a link to the document in your github repo
+
+
+Please contact Dimitris or Manuel if you get stuck in any of the steps
