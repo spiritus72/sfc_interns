@@ -35,7 +35,7 @@ Answer#4 - Thanks for the hint :)
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-copy-id opnfv@10.10.100.21
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh opnfv@10.10.100.21
     
-    Now you can login without a password :)
+    Now you can login without typing a password :)
 
 #5 - ssh to your VM running in the server. The ip was provided in the mail
 
