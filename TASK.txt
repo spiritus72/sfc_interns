@@ -31,15 +31,41 @@ Answer#4 - Thanks for the hint :)
     Next I copy the public key to the server with ssh-copy-id. It'll prompt for the SSH password you gave me, when I type it and if all completes successfully I'll be able to access the server via ssh opnfv@10.10.100.21 without needing a             password.
     
     ##Practical steps
+    
+	  ######################################################################
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-keygen
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-copy-id opnfv@10.10.100.21
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh opnfv@10.10.100.21
-    
-    Now you can login without typing a password :)
+      ######################################################################
+      
+      Now you can login without typing a password :)
 
 #5 - ssh to your VM running in the server. The ip was provided in the mail
 
+Answer#5 - Done: ssh root@192.168.122.3
+
 #6 - How would you ssh directly from your computer to the VM without having to use ssh twice (one to connect to the server and another one to connect to the VM)? If you know a way, apart from briefly explaining how, please try to do it.
+
+Answer#6 - There are two ways I know of accessing the VM without having to use ssh twice; 
+	The first one is to use a ProxyCommand in my SSH config:
+		create an SSH configuration file in my home directory, `~/.ssh/config`
+		
+		###########################################################################
+		Hostname 10.10.100.21    # IP address to the address of the "middleserver"
+		User opnfv         # Change this default user accordingly 
+
+		Host 192.168.122.3    # IP address of the target host
+		ProxyCommand ssh -q 10.10.100.21 nc -q0 192.168.122.3
+		###########################################################################
+		
+		Then I can access the machine using ssh opnfv@192.168.122.3
+		
+	OR
+	
+	I can just upgrade to OpenSSH version 7.3 (released in August 2016) and access the machine using
+	ssh -J root@192.168.122.3 opnfv@10.10.100.21
+	
+	Note: To upgrade to OpenSSH version 7.3 in Ubuntu 16.04 I had to install and compile from source.
 
 #7 - Install docker inside the VM
 
