@@ -22,6 +22,21 @@ Answer#3 - Done: ssh opnfv@10.10.100.21
 
 #4 - How would you ssh our server without having to write the password? If you know a way, apart from briefly explaining how, please try to do it. HINT: Restarting the sshd process (ssh server) is not needed
 
+Answer#4 - Thanks for the hint :)
+
+    In order to ssh the server without having to write the password I'll have to generate an SSH Keypair which will allow me to identify myself without using a password.
+    
+    First I will create my SSH Keypair by running ssh-keygen on my local machine and this will create an id_rsa and id_rsa.pub file.
+    
+    Next I copy the public key to the server with ssh-copy-id. It'll prompt for the SSH password you gave me, when I type it and if all completes successfully I'll be able to access the server via ssh opnfv@10.10.100.21 without needing a             password.
+    
+    ##Practical steps
+      spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-keygen
+      spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-copy-id opnfv@10.10.100.21
+      spiritus@spiritus-HP-ProBook-450-G4:~$ ssh opnfv@10.10.100.21
+    
+    Now you can login without a password :)
+
 #5 - ssh to your VM running in the server. The ip was provided in the mail
 
 #6 - How would you ssh directly from your computer to the VM without having to use ssh twice (one to connect to the server and another one to connect to the VM)? If you know a way, apart from briefly explaining how, please try to do it.
