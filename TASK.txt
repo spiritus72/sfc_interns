@@ -6,6 +6,8 @@ Here is the list of tasks:
 
 #1 - Create a github account (if you don't have one yet) and fork this repo. We would like you to write down the answers of the questions we ask in the forked version of this text file. If the task requires some practical exercises, we would like you to write every command you use
 
+Answer#1 - Done
+
 #2 - Set up the VPN to connect to our lab. To do so, read the instructions in the next link under the section "Using the VPN":
 
 https://wiki.opnfv.org/display/INF/Lab-as-a-Service+at+the+UNH-IOL
