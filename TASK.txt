@@ -14,7 +14,11 @@ https://wiki.opnfv.org/display/INF/Lab-as-a-Service+at+the+UNH-IOL
 
 Your username and password for the VPN were provided to you in the mail
 
+Answer#2 - Done
+
 #3 - Connect to our server (10.10.100.21) using ssh with username opnfv and the same for password
+
+Answer#3 - Done: ssh opnfv@10.10.100.21
 
 #4 - How would you ssh our server without having to write the password? If you know a way, apart from briefly explaining how, please try to do it. HINT: Restarting the sshd process (ssh server) is not needed
 
