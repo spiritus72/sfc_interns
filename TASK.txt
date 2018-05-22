@@ -71,29 +71,41 @@ Answer#7 - Done
 #8 - Create 2 docker containers (use opensuse or ubuntu as their operating system) making sure that they don't stop when you leave them. From now on, we will call these containers: container1 and container2
 
 Answer#8 - Done: docker run --name container1 -it ubuntu
-				 exit
-				 docker start <CONTAINER1_ID>
+				 CTRL-q
 				 docker run --name container2 -it ubuntu
-				 exit
-				 docker start <CONTAINER2_ID>
+				 CTRL-q
 
 
 #9 - Make sure you can ping between both containers
 
-Answer#9 - Done: docker network create billcontainet
-				 docker network connect billcontainet container1
-				 docker network connect billcontainet container2
-				 docker exec -it container1 apt update && apt install iputils-ping
-				 docker exec -it container2 apt update && apt install iputils-ping
-				 docker exec -it container1 ping container2
-				 docker exec -it container2 ping container1
+Answer#9 - Done: docker attach container1 
+apt update && apt install iputils-ping
+ping 172.17.0.3
+##Container2
+docker attach container2
+apt update && apt install iputils-ping
+ping 172.17.0.2
 
 
 #10 - Explain what are the used networking protocols and the exchanged packets that appear in order for ping to be successful (e.g. container2 first sends a UDP packet with the IP of container 1...)
 
+Answer#10 - First container2 sends an ARP packet with the IP of container1 to discover the MAC address associated with container1 IP address. container1 will respond with a unicast ARP reply.
+
+Next an ICMP echo-request packet is crafted with the container2 MAC and IP addresses as the source, and container1 MAC(discovered from the ARP request) and IP addresses as the destination.
+
+When container1 receives it, it first examines the MAC address to make sure that it matches the MAC address of the interface that received the packet. If it matches then it checks the IP address to make sure that it matches the IP address on the interface. If all of these check out then the packet will be handled by ICMP, which in turn is handled by the kernel. If not, the packet is dropped.
+
+For the ICMP reply things work in pretty much the same way, except that the container1 doesn't need to send an ARP request, since it received a packet with an IP/MAC address pair it can install that directly to the ARP cache instead.
+
+
 #11 - Describe in detail what is the path the packets follow since they leave the interface inside container1 until they reach the interface inside container2
 
+Answer#11 - They are considered to be in the same network, so from the interface inside container1 the packets will move to the "bridge" gateway that was automatically created when docker was installed on the host, which in turn will forward the packets to the interface of container2.
+
+
 #12 - Imagine, container1 and container2 are in different VMs or servers. What do you think would change from what you described in #11?
+
+Answer#12 - In this case they are no longer in the same network
 
 #13 - Push this file with the answers to your private github repository
 
