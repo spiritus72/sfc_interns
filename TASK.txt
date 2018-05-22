@@ -105,7 +105,9 @@ Answer#11 - They are in the same network, so from the interface inside container
 
 #12 - Imagine, container1 and container2 are in different VMs or servers. What do you think would change from what you described in #11?
 
-Answer#12 - Assuming the servers or VMs(hosts) are on the same local network, the packets from container1 will not be able to locate container2 on a different host. In this situation the options I will use will be to use Docker Swarm or setup docker overlay network and in these cases one container will be configured to have a published address which is the address of a subnet such that the other one can be added and communicate with it. The "bridge" gateway will now be the gateway of the published subnet.
+Answer#12 - Assuming the servers or VMs(hosts) are on the same local network, the packets from container1 will not be able to locate container2 on a different host. 
+In this situation the options to consider is to use Docker Swarm or setup docker overlay network and in these cases one container will be configured to have a published address which is the address of a subnet such that the other one can be added and communicate with it.
+The "bridge" gateway will now be the gateway of the published subnet.
 
 
 #13 - Push this file with the answers to your private github repository
