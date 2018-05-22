@@ -35,7 +35,7 @@ Answer#4 - Thanks for the hint :)
     
     ##Practical steps(Commands)
     
-	  ######################################################################
+      ######################################################################
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-keygen
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh-copy-id opnfv@10.10.100.21
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh opnfv@10.10.100.21
@@ -71,13 +71,22 @@ Answer#7 - Done
 #8 - Create 2 docker containers (use opensuse or ubuntu as their operating system) making sure that they don't stop when you leave them. From now on, we will call these containers: container1 and container2
 
 Answer#8 - Done: docker run --name container1 -it ubuntu
+<<<<<<< HEAD
 				 CTRL-q
 				 docker run --name container2 -it ubuntu
 				 CTRL-q
+=======
+		 exit
+		 docker start <CONTAINER1_ID>
+		 docker run --name container2 -it ubuntu
+		 exit
+		 docker start <CONTAINER2_ID>
+>>>>>>> 4a38014536380722edd320a3da78f6bc51810654
 
 
 #9 - Make sure you can ping between both containers
 
+<<<<<<< HEAD
 Answer#9 - Done: docker attach container1 
 apt update && apt install iputils-ping
 ping 172.17.0.3
@@ -85,6 +94,15 @@ ping 172.17.0.3
 docker attach container2
 apt update && apt install iputils-ping
 ping 172.17.0.2
+=======
+Answer#9 - Done: docker network create billcontainet
+		 docker network connect billcontainet container1
+		 docker network connect billcontainet container2
+		 docker exec -it container1 apt update && apt install iputils-ping
+		 docker exec -it container2 apt update && apt install iputils-ping
+		 docker exec -it container1 ping container2
+		 docker exec -it container2 ping container1
+>>>>>>> 4a38014536380722edd320a3da78f6bc51810654
 
 
 #10 - Explain what are the used networking protocols and the exchanged packets that appear in order for ping to be successful (e.g. container2 first sends a UDP packet with the IP of container 1...)
