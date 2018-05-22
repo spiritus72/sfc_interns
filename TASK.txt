@@ -118,16 +118,20 @@ For the ICMP reply things work in pretty much the same way, except that the cont
 
 #11 - Describe in detail what is the path the packets follow since they leave the interface inside container1 until they reach the interface inside container2
 
-Answer#11 - They are considered to be in the same network, so from the interface inside container1 the packets will move to the "bridge" gateway that was automatically created when docker was installed on the host, which in turn will forward the packets to the interface of container2.
+Answer#11 - They are in the same network, so from the interface inside container1 the packets will move to the "bridge" gateway that was automatically created when docker was installed on the host, which in turn will forward the packets to the interface of container2.
 
 
 #12 - Imagine, container1 and container2 are in different VMs or servers. What do you think would change from what you described in #11?
 
-Answer#12 - In this case they are no longer in the same network
+Answer#12 - Assuming the servers or VMs(hosts) are on the same local network, the packets from container1 will not be able to locate container2 on a different host. In this situation the options I will use will be to use Docker Swarm or setup docker overlay network and in these cases one container will be configured to have a published address which is the address of a subnet such that the other one can be added and communicate with it. The "bridge" gateway will now be the gateway of the published subnet.
+
 
 #13 - Push this file with the answers to your private github repository
 
+Answer#13 - Done
+
 #14 - Send an email to Dimitris and Manuel with a link to the document in your github repo
 
+Answer#14 - Done :)
 
 Please contact Dimitris or Manuel if you get stuck in any of the steps
