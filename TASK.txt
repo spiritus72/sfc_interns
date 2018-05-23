@@ -53,7 +53,7 @@ Answer#5 - Done: ssh root@192.168.122.3
 
 Answer#6 - By opening a SOCKS proxy via an intermediate host
 	
-	Command: ssh -D 8000 -J ssh opnfv@10.10.100.21 root@192.168.122.3
+	Command: ssh -D 8000 -J opnfv@10.10.100.21 root@192.168.122.3
 	Note: I needed to upgrade to OpenSSH version 7.3 (released in August 2016) to use this method.
 	
 	On older versions(<=OpenSSH_7.2p2) I used this
