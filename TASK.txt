@@ -71,9 +71,9 @@ Answer#7 - Done
 #8 - Create 2 docker containers (use opensuse or ubuntu as their operating system) making sure that they don't stop when you leave them. From now on, we will call these containers: container1 and container2
 
 Answer#8 - Done: docker run --name container1 -it ubuntu
-CTRL-p CTRL-q
+^p^q(CTRL-p CTRL-q)
 docker run --name container2 -it ubuntu
-CTRL-p CTRL-q
+^p^q(CTRL-p CTRL-q)
 
 
 #9 - Make sure you can ping between both containers
