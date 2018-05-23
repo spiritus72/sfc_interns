@@ -29,9 +29,9 @@ Answer#4 - Thanks for the hint :)
 
     In order to ssh the server without having to write the password I'll have to generate an SSH Keypair which will allow me to identify myself without using a password.
     
-    First I will create my SSH Keypair by running ssh-keygen on my local machine and this will create an id_rsa and id_rsa.pub file.
+    First I will create my SSH Keypair by running ssh-keygen on my local machine and this will create an id_rsa(private key) and id_rsa.pub(public key) file.
     
-    Next I copy the public key to the server with ssh-copy-id. It'll prompt for the SSH password you gave me, when I type it and if all completes successfully I'll be able to access the server via ssh opnfv@10.10.100.21 without needing a             password.
+    Next I copy the public key to the server with ssh-copy-id. It'll prompt for the SSH password I was given in the mail, when I type it and if all completes successfully I'll be able to access the server via ssh opnfv@10.10.100.21 without needing a             password.
     
     ##Practical steps(Commands)
     
@@ -41,7 +41,7 @@ Answer#4 - Thanks for the hint :)
       spiritus@spiritus-HP-ProBook-450-G4:~$ ssh opnfv@10.10.100.21
       ######################################################################
       
-      Now you can login without typing a password :)
+      Now I can login without typing a password :)
 
 
 #5 - ssh to your VM running in the server. The ip was provided in the mail
@@ -71,9 +71,9 @@ Answer#7 - Done
 #8 - Create 2 docker containers (use opensuse or ubuntu as their operating system) making sure that they don't stop when you leave them. From now on, we will call these containers: container1 and container2
 
 Answer#8 - Done: docker run --name container1 -it ubuntu
-CTRL-q
+CTRL-p CTRL-q
 docker run --name container2 -it ubuntu
-CTRL-q
+CTRL-p CTRL-q
 
 
 #9 - Make sure you can ping between both containers
